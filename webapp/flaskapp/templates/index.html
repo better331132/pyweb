@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Jinja Test Page</title>
+    <style>
+    .red{ color:red}
+    .blue{ color:blue}
+    .brown{ color:brown}
+    </style>
+</head>
+<body>
+    <h1>Jinja Test : {{title}}</h1>
+    <pre>요요요요</pre>
+    <hr>
+    {{"<strong>Strong</strong>"}}
+    {{"<strong>Strong</strong>" | safe}}
+    {{"<strong>Strong</strong>" | striptags}}
+    <hr>
+    <ul>
+        {% for item in lst %}
+            <li>{{item[0]}}: {{item[1]}}</li>
+        {% endfor %}
+    </ul>
+    <hr>
+    {% for title, name, isTrue in lst %}
+        <li class="{{loop.cycle('red','blue','brown')}}">{{title}}: {{name}} - {{loop.index}} - {{loop.revindex}} - {{loop.first}} - {{loop.last}} - {{loop.length}} - {{loop.depth}}</li>
+    {% endfor %}
+    <hr>
+    <ul>
+        {% for title, name, hide, ref in lst2 recursive %}
+             <li>
+                {{title}}: {{name}}
+                <ul class="sub">{{ loop(ref) }}</ul>
+             </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

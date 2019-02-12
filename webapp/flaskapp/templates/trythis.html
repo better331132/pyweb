@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Category</title>
+</head>
+<body>
+    <h1><a href="http://localhost:5000/trythis">{{category}}</a></h1>
+    <h3>{{title}}</h3>
+    <ul>
+        {% for title, level, ref, url in lst recursive %}
+            <li>
+                <a href="{{url}}">{{title}}</a>
+                <ul>{{ loop(ref) }}</ul>
+            </li>
+        {% endfor %}
+    </ul>
+            
+</body>
+</html>
